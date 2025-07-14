@@ -44,7 +44,7 @@ The report includes several calculated columns and measures, such as:
 - `Average Response Time`
 - `Average Resolution Time`
 
-> 💡 Full list available in [(Dax_Formulas.txt)]
+> 💡 Full list available in (https://github.com/user-attachments/files/21212728/Dax_Formulas.txt)
 
 ---
 
