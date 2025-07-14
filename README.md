@@ -28,7 +28,7 @@ Customer-Support-Ticket-BI/
 
 ## 📷 Dashboard Preview
 
-  ![Customer Support Dashboard](visuals/dashboard_screenshot.png)
+  ![Customer Support Dashboard](visuals/SC of Project.png)
 
 ---
 
