@@ -28,7 +28,7 @@ Customer-Support-Ticket-BI/
 
 ## 📷 Dashboard Preview
 
-  ![Customer Support Dashboard](SC of Project.png)
+  ![Customer Support Dashboard](<img width="995" height="555" alt="Image" src="https://github.com/user-attachments/assets/8fc2f486-e9df-4993-80cc-ff96a6c538df" />
 
 ---
 
