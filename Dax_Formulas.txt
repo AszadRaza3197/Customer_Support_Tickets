@@ -1,0 +1,49 @@
+ 1. Ticket Age (Days Since Purchase)
+Ticket Age = DATEDIFF('Table'[Date of Purchase], TODAY(), DAY)
+
+ 2. Response Time (Hours)
+Response Time Hours = 
+VAR FirstResp = 'Table'[First Response Time]
+VAR PurchaseDate = 'Table'[Date of Purchase]
+RETURN IF(NOT ISBLANK(FirstResp), (FirstResp - PurchaseDate)  24, BLANK())
+
+ 3. Resolution Time (Hours)
+Resolution Time Hours = 
+VAR ResolutionTime = 'Table'[Time to Resolution]
+VAR FirstResp = 'Table'[First Response Time]
+RETURN IF('Table'[Ticket Status] = Closed && NOT ISBLANK(ResolutionTime), 
+    (ResolutionTime - FirstResp)  24, BLANK())
+
+ 4. Customer Age Group
+Age Group = 
+SWITCH(TRUE(),
+    'Table'[Customer Age]  30, 18-29,
+    'Table'[Customer Age]  40, 30-39,
+    'Table'[Customer Age]  50, 40-49,
+    'Table'[Customer Age]  60, 50-59,
+    60+
+)
+
+ 5. Product Category
+Product Category = 
+SWITCH(TRUE(),
+    'Table'[Product Purchased] IN {Microsoft Office, Adobe Photoshop, Autodesk AutoCAD}, Software,
+    'Table'[Product Purchased] IN {GoPro Hero, Dell XPS, Sony PlayStation, iPhone}, Electronics,
+    'Table'[Product Purchased] IN {LG Smart TV, Dyson Vacuum Cleaner, LG Washing Machine}, Appliances,
+    'Table'[Product Purchased] IN {Fitbit Versa Smartwatch, Fitbit Charge}, Wearables,
+    Other
+)
+
+ 6. Satisfaction Bucket
+Satisfaction Bucket = 
+SWITCH(TRUE(),
+    ISBLANK('Table'[Customer Satisfaction Rating]), Not Rated,
+    'Table'[Customer Satisfaction Rating] = 2, Poor,
+    'Table'[Customer Satisfaction Rating] = 4, Average,
+    'Table'[Customer Satisfaction Rating] = 5, Excellent
+)
+
+ 7. Priority-Status Flag
+Priority Flag = 
+IF('Table'[Ticket Priority] = Critical && 'Table'[Ticket Status]  Closed, 
+    Urgent Action, Normal)
